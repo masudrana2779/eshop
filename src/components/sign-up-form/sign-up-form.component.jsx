@@ -2,8 +2,9 @@ import { useState } from "react";
 
 import {
   createAuthUserWithEmailAndPassword,
-  createUserDocumentFromAuth
+  createUserDocumentFromAuth,
 } from "../../utils/firebase/firebase.utils";
+import FormInput from "../form-input/form-input.component";
 
 const defaultFormFields = {
   displayName: "",
@@ -53,45 +54,48 @@ const SignUpFrom = () => {
   };
 
   return (
-    <form onSubmit={handleSubmit}>
-      <label>Dispaly Name</label>
-      <input
-        type="text"
-        name="displayName"
-        value={displayName}
-        onChange={handleChange}
-        required
-      />
+    <div>
+      <h1>Sign up with your email and password</h1>
+      <form onSubmit={handleSubmit}>
+        <FormInput
+          lable="Dispaly Name"
+          type="text"
+          name="displayName"
+          value={displayName}
+          onChange={handleChange}
+          required
+        />
 
-      <label>E-mail</label>
-      <input
-        type="email"
-        name="email"
-        value={email}
-        onChange={handleChange}
-        required
-      />
+        <FormInput
+          lable="E-mail"
+          type="email"
+          name="email"
+          value={email}
+          onChange={handleChange}
+          required
+        />
 
-      <label>Password</label>
-      <input
-        type="password"
-        name="password"
-        value={password}
-        onChange={handleChange}
-        required
-      />
+        <FormInput
+          lable="Password"
+          type="password"
+          name="password"
+          value={password}
+          onChange={handleChange}
+          required
+        />
 
-      <label>Confirm Password</label>
-      <input
-        type="password"
-        name="confirmPassword"
-        value={confirmPassword}
-        onChange={handleChange}
-        required
-      />
+        <FormInput
+          lable="Confirm Password"
+          type="password"
+          name="confirmPassword"
+          value={confirmPassword}
+          onChange={handleChange}
+          required
+        />
 
-      <button type="submit">SIGN UP</button>
-    </form>
+        <button type="submit">SIGN UP</button>
+      </form>
+    </div>
   );
 };
 
